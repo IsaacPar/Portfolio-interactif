@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio BUT Info - Janvier 2026</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <main id="universe">
+        <div class="solar-system">
+            
+            <section id="sun">
+                <div class="profile-preview">
+                    <h1>Mon Portfolio</h1>
+                    <p>BUT 1 Informatique</p>
+                    <a href="assets/docs/cv.pdf" class="btn-cv" target="_blank">Voir mon CV</a>
+                </div>
+            </section>
+
+            <div class="orbit" id="orbit-c1">
+                <div class="planet" id="planet-c1" onclick="openModal('c1')">
+                    <span class="label">C1 : Réaliser</span>
+                </div>
+            </div>
+
+            <div class="orbit" id="orbit-c2">
+                <div class="planet" id="planet-c2" onclick="openModal('c2')">
+                    <span class="label">C2 : Optimiser</span>
+                </div>
+            </div>
+
+            <div class="orbit" id="orbit-c3">
+                <div class="planet" id="planet-c3" onclick="openModal('c3')">
+                    <span class="label">C3 : Administrer</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="modal-container" class="hidden">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <div id="competence-detail">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+"""" 
+public class Device {
+    private String name;
+    private final int inventionYear;
+
+    public Device(String name, int inventionYear) {
+        this.name = name;
+        this.inventionYear = inventionYear;
+    }
+    public String toString() {
+        return "Device Name: " + name + ", Invention Year: " + inventionYear;
+    }
+
+
+}
+
+public class computerPioneer extends Device {
+    private String firstName;
+    private String lastName;
+
+    public computerPioneer(String name, int inventionYear, String firstName, String lastName) {
+        super(name, inventionYear);
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + ", First Name: " + firstName + ", Last Name: " + lastName;
+    }
+}
+
+
+
+
+
+
+
+
+""""

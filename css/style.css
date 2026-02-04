@@ -1,0 +1,128 @@
+:root {
+    --space-bg: #050810;
+    --text-light: #ffffff;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    background-color: var(--space-bg);
+    color: var(--text-light);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+#universe {
+    position: relative;
+    width: 100vw; height: 100vh;
+    display: flex; justify-content: center; align-items: center;
+    perspective: 1000px;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+}
+
+/* Étoiles multiples */
+#universe::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 1px; height: 1px;
+    box-shadow: 10vw 20vh #fff, 80vw 15vh #fff, 25vw 70vh #fff, 55vw 85vh #fff, 15vw 10vh #fff, 45vw 30vh #fff, 70vw 75vh #fff;
+    animation: twinkle 5s infinite ease-in-out;
+}
+
+.solar-system {
+    position: relative;
+    width: 100%; height: 100%;
+    display: flex; justify-content: center; align-items: center;
+    transform: rotateX(65deg);
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+.solar-system.zoom-active {
+    transform: rotateX(45deg) scale(1.5);
+}
+
+#sun {
+    position: absolute;
+    width: 150px; height: 150px;
+    background: url('../assets/icons/solar_system_asset_pack/16x16px/Sun (dark).png') no-repeat center;
+    background-size: contain; image-rendering: pixelated;
+    z-index: 10;
+    transform: rotateX(-65deg) !important; /* Redressement fixe */
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+
+#sun h1 { font-size: 1rem; }
+.btn-cv { border: 1px solid white; padding: 5px; color: white; text-decoration: none; font-size: 0.7rem; margin-top: 5px; }
+
+.orbit {
+    position: absolute; border: 1px rgba(255, 255, 255, 0.1) dashed; border-radius: 50%;
+    pointer-events: none; transform-style: preserve-3d;
+}
+
+#orbit-c1 { width: 350px; height: 350px; }
+#orbit-c2 { width: 550px; height: 550px; }
+#orbit-c3 { width: 750px; height: 750px; }
+
+.planet {
+    position: absolute; cursor: pointer; pointer-events: auto !important;
+    background-size: contain !important; background-repeat: no-repeat;
+    image-rendering: pixelated; z-index: 100;
+}
+
+#planet-c1 { width: 60px; height: 60px; background-image: url('../assets/icons/solar_system_asset_pack/16x16px/Earth.png'); top: 50%; left: -30px; }
+#planet-c2 { width: 80px; height: 80px; background-image: url('../assets/icons/solar_system_asset_pack/16x16px/Jupiter.png'); top: 50%; right: -40px; }
+#planet-c3 { width: 50px; height: 50px; background-image: url('../assets/icons/solar_system_asset_pack/16x16px/Mars.png'); bottom: -25px; left: 50%; }
+
+.label {
+    position: absolute; bottom: -30px; white-space: nowrap;
+    background: rgba(0,0,0,0.7); padding: 2px 8px; font-size: 0.8rem; pointer-events: none;
+}
+
+/* Modale */
+#modal-container { 
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(49, 49, 49, 0.493); 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    z-index: 1000; }
+    
+.hidden { display: none !important; }
+
+
+.modal-content {
+    position: relative; 
+    padding: 30px;
+    border-radius: 15px;
+    width: 60%;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow: hidden;
+    color: #ffffff; 
+}
+
+
+.modal-content::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../assets/icons/Background.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; 
+    z-index: -1; 
+    filter: blur(5px);
+}
+
+.close-btn { 
+    float: right; 
+    color: rgb(255, 255, 255); 
+    background: none; 
+    border: none; 
+    font-size: 2rem; 
+    cursor: pointer; }

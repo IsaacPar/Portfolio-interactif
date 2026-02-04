@@ -1,0 +1,35 @@
+@keyframes rotate-orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes billboard-fix {
+    from { transform: rotateX(-65deg) rotate(0deg); }
+    to { transform: rotateX(-65deg) rotate(-360deg); }
+}
+
+#orbit-c1 { animation: rotate-orbit 20s linear infinite; }
+#orbit-c2 { animation: rotate-orbit 35s linear infinite; }
+#orbit-c3 { animation: rotate-orbit 50s linear infinite; }
+
+.planet, .label { animation-name: billboard-fix; animation-timing-function: linear; animation-iteration-count: infinite; }
+
+#orbit-c1 .planet, #orbit-c1 .label { animation-duration: 20s; }
+#orbit-c2 .planet, #orbit-c2 .label { animation-duration: 35s; }
+#orbit-c3 .planet, #orbit-c3 .label { animation-duration: 50s; }
+
+
+
+
+.orbit:has(.planet:hover) {
+    animation-play-state: paused !important;
+}
+
+.orbit:has(.planet:hover) .planet,
+.orbit:has(.planet:hover) .label {
+    animation-play-state: paused !important;
+}
+
+@keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+
+
